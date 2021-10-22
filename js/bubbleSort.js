@@ -175,7 +175,6 @@ function sortBubbleSort() {
     }, c_delay + delay_time);
   }
 
-  ///End of looping
   window.setTimeout(() => {
     bubbleSortBtn.classList.remove("selected");
     bubbleSortBtn.disabled = false;

@@ -102,12 +102,11 @@ function sortQuickSort() {
     statusCard.innerHTML = "<br>";
   }, c_delay + delay_time);
 
-  quickSort(0, totalBars - 1);
-
   function swap(i, j) {
     let t = dataList[i];
     dataList[i] = dataList[j];
     dataList[j] = t;
+    swapper(i, j, c_delay);
   }
 
   /* This function takes last element as pivot, places 
@@ -121,22 +120,20 @@ function sortQuickSort() {
     i = low - 1; // Index of smaller element and indicates the right position of pivot found so far
     for (let j = low; j < high; j++) {
       // If current element is smaller than the pivot
-      if (dataList[j] < pivot) {
+      if (dataList[j] <= pivot) {
         i++; // increment index of smaller element
 
         window.setTimeout(() => {
           let STATUS = "Swapping i and j ";
           statusCard.innerHTML = STATUS;
         }, (c_delay += delay_time));
-        swapper(i, j, c_delay);
         change_color(i, j, "#66bb6a", c_delay);
-
+        swap(i, j);
         window.setTimeout(() => {
           let STATUS = "</br>";
           statusCard.innerHTML = STATUS;
         }, c_delay + delay_time);
         change_color(i, j, "#ffffff", c_delay + delay_time);
-        swap(i, j);
       }
     }
 
@@ -144,17 +141,14 @@ function sortQuickSort() {
       let STATUS = "Swapping i+1 and high";
       statusCard.innerHTML = STATUS;
     }, (c_delay += delay_time));
-
-    swapper(i + 1, high, c_delay);
     change_color(i + 1, high, "#66bb6a", c_delay);
+    swap(i + 1, high);
 
     window.setTimeout(() => {
       let STATUS = "</br>";
       statusCard.innerHTML = STATUS;
     }, c_delay + delay_time);
     change_color(i + 1, high, "#ffffff", c_delay + delay_time);
-    swap(i + 1, high);
-
     change_color_single_div(i + 1, "#7048e8", c_delay + delay_time);
     // change_color_single_div(i + 1, "#ffffff", c_delay + delay_time);
     return i + 1;
@@ -166,7 +160,7 @@ function sortQuickSort() {
   high --> Ending index */
 
   /// Beginning of for loop
-
+  quickSort(0, totalBars - 1);
   function quickSort(low, high) {
     if (low < high) {
       //Ramoving statu ,highlight
@@ -175,7 +169,6 @@ function sortQuickSort() {
         statusCard.innerHTML = STATUS;
         line2.classList.add("highlight");
       }, (c_delay += delay_time));
-
       change_color(low, high, "#ffd54f", c_delay);
 
       window.setTimeout(() => {
@@ -183,7 +176,6 @@ function sortQuickSort() {
         statusCard.innerHTML = STATUS;
         line2.classList.remove("highlight");
       }, c_delay + delay_time);
-
       change_color(low, high, "#ffffff", c_delay + delay_time);
       /* pi is partitioning index, arr[p] is now 
           at right place */
@@ -193,15 +185,12 @@ function sortQuickSort() {
         statusCard.innerHTML = STATUS;
         line3.classList.add("highlight");
       }, (c_delay += delay_time));
-
+      pi = partition(low, high);
       window.setTimeout(() => {
         let STATUS = "</br>";
         statusCard.innerHTML = STATUS;
         line3.classList.remove("highlight");
       }, c_delay + delay_time);
-
-      pi = partition(low, high);
-
       // Separately sort elements before
       // partition and after partition
 
