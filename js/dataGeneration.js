@@ -1,4 +1,6 @@
 // function called when taking data as list
+var max = Number.MIN_VALUE;
+
 function getData() {
   // clearing containeer
   removeAllChildNodes(parent);
@@ -39,7 +41,6 @@ function createBars(list) {
   console.log(dataList);
 
   // finding largest element
-  var max = Number.MIN_VALUE;
   for (let index = 0; index < list.length; index++) {
     var element = list[index];
     if (element > max) {

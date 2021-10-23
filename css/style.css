@@ -57,10 +57,14 @@ section {
   column-gap: 8rem;
 }
 
-
 .grid-5-cols {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
+  column-gap: 8rem;
+}
+.grid-6-cols {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
   column-gap: 8rem;
 }
 

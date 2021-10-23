@@ -38,7 +38,7 @@ function sortHeapSort() {
   document.getElementById("algorithm").innerHTML = `
   <li>
   <pre> 
-  <span id="declaration">begin heapSort(arr,n)</span>
+  <span id="declaration">begin HeapSort(arr,n)</span>
    <span id="for">for(i=n/2-1 ;i>=0;i--)</span>
     <span id="heapify">heapify(arr,n,i)</span>
    <span>end for</span>    
@@ -46,7 +46,7 @@ function sortHeapSort() {
     <span id="swap">swap(arr[0],arr[i])</span>
     <span id="heapify2">heapify(arr,i,0)</span>
    <span>end for</span>   
-  <span>end BubbleSort</span>
+  <span>end HeapSort</span>
   </pre>
   </li>`;
 

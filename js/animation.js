@@ -23,6 +23,19 @@ function swapper(id_i, id_j, time) {
   }, time);
 }
 
+function changer(id_i, value, time) {
+  window.setTimeout(() => {
+    var divi = document.getElementById(id_i.toString());
+    divi.classList.add("transition");
+    // console.log("value " + value);
+    // finding constant for height
+    var constant = 20 / max;
+
+    divi.style.height = constant * value + "rem";
+    divi.childNodes[0].innerHTML = value;
+  }, time);
+}
+
 // return value of child element value from id /////
 function getValue(id) {
   var val = document.getElementById(id.toString()).childNodes;
